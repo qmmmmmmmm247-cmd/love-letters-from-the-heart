@@ -17,6 +17,7 @@ import { TimeMessage } from "../components/TimeMessage";
 import { HiddenHearts } from "../components/HiddenHearts";
 import { PasswordLock } from "../components/PasswordLock";
 import { Toaster } from "sonner";
+import { MusicPlayer } from "../components/MusicPlayer";
 
 function NotFoundComponent() {
   return (
@@ -123,6 +124,7 @@ function RootComponent() {
         </div>
         <TimeMessage />
         <HiddenHearts />
+        <MusicPlayer />
         <Toaster position="top-center" theme="dark" richColors />
       </PasswordLock>
     </QueryClientProvider>
