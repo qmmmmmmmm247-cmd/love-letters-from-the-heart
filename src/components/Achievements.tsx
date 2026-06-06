@@ -3,7 +3,7 @@ import { Trophy, MessageCircle, Heart, Gift, MapPin, Crown, Star } from "lucide-
 const achievements = [
   { icon: MessageCircle, title: "أول كلمة", desc: "6 أغسطس - بداية الحكاية", date: "2025-08-06", unlocked: true },
   { icon: Heart, title: "أول لقاء", desc: "23 أبريل - 2:08 ص", date: "2026-04-23", unlocked: true },
-  { icon: Crown, title: "يوم الارتباط", desc: "1 فبراير - صرنا واحد", date: "2025-02-01", unlocked: true },
+  { icon: Crown, title: "يوم الارتباط", desc: "1 فبراير - صرنا واحد", date: "2026-02-01", unlocked: true },
   { icon: Gift, title: "أول هدية", desc: "هدية من القلب", unlocked: true },
   { icon: MapPin, title: "أول خروجة", desc: "ذكرى مش هنّساها", unlocked: true },
   { icon: Star, title: "100 يوم سوا", desc: "وقفة على طريق طويل", unlocked: true },

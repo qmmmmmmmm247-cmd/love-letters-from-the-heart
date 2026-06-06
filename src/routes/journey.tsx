@@ -36,7 +36,7 @@ const planets = [
   {
     id: "moon",
     name: "كوكب الارتباط",
-    period: "1 فبراير 2025",
+    period: "1 فبراير 2026",
     color: "from-rose-400 to-pink-300",
     glow: "oklch(0.78 0.2 5)",
     size: 80,
