@@ -11,24 +11,29 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { StarField } from "../components/StarField";
+import { NavBar } from "../components/NavBar";
+import { TimeMessage } from "../components/TimeMessage";
+import { HiddenHearts } from "../components/HiddenHearts";
+import { PasswordLock } from "../components/PasswordLock";
+import { Toaster } from "sonner";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div className="relative flex min-h-screen items-center justify-center px-4">
+      <StarField count={60} />
+      <div className="glass-strong relative z-10 max-w-md rounded-3xl p-8 text-center">
+        <div className="mb-4 text-6xl">🌌</div>
+        <h1 className="mb-2 text-3xl font-bold shimmer-text">ضعت في الكون</h1>
+        <p className="mb-6 text-sm text-muted-foreground">
+          الصفحة دي مش موجودة.. بس قلبي موجود وهيرجعك للبداية
         </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
-        </div>
+        <Link
+          to="/"
+          className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-primary to-accent px-6 py-2.5 text-sm font-bold text-primary-foreground glow-rose"
+        >
+          ارجع للبداية
+        </Link>
       </div>
     </div>
   );
@@ -42,29 +47,22 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
-        </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
+    <div className="relative flex min-h-screen items-center justify-center px-4">
+      <div className="glass-strong max-w-md rounded-3xl p-8 text-center">
+        <h1 className="mb-2 text-xl font-bold text-gradient-rose">حصل خطأ صغير</h1>
+        <p className="mb-6 text-sm text-muted-foreground">جرب تاني وقلبي معاك</p>
+        <div className="flex flex-wrap justify-center gap-2">
           <button
             onClick={() => {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="rounded-full bg-gradient-to-r from-primary to-accent px-5 py-2 text-sm font-bold text-primary-foreground"
           >
-            Try again
+            حاول مرة أخرى
           </button>
-          <a
-            href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-          >
-            Go home
+          <a href="/" className="rounded-full border border-border px-5 py-2 text-sm hover:bg-white/5">
+            البداية
           </a>
         </div>
       </div>
@@ -77,20 +75,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "نبض قلبي - عالمنا الخاص" },
+      { name: "description", content: "موقع رومانسي يجمع كل الذكريات والأمنيات والتفاصيل الصغيرة بين قلبين" },
+      { name: "theme-color", content: "#040714" },
+      { name: "author", content: "نبض قلبي" },
+      { property: "og:title", content: "نبض قلبي - عالمنا الخاص" },
+      { property: "og:description", content: "كل لحظة، كل ذكرى، كل أمنية.. في مكان واحد" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>" },
     ],
   }),
   shellComponent: RootShell,
@@ -101,7 +96,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ar" dir="rtl">
       <head>
         <HeadContent />
       </head>
@@ -118,8 +113,18 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <PasswordLock>
+        <StarField count={100} />
+        <div className="relative z-10 mx-auto max-w-7xl px-3 pb-20 sm:px-6">
+          <NavBar />
+          <main className="pt-6">
+            <Outlet />
+          </main>
+        </div>
+        <TimeMessage />
+        <HiddenHearts />
+        <Toaster position="top-center" theme="dark" richColors />
+      </PasswordLock>
     </QueryClientProvider>
   );
 }
