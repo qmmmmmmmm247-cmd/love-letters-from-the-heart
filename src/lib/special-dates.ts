@@ -19,7 +19,7 @@ export const SPECIAL_DATES = [
     id: "engagement",
     title: "يوم ارتباطنا",
     subtitle: "اليوم اللي صرنا فيه واحد",
-    date: new Date("2025-02-01T00:00:00"),
+    date: new Date("2026-02-01T00:00:00"),
     emoji: "💍",
     color: "from-amber-500/30 to-rose-500/20",
   },
