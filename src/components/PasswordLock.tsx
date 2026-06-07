@@ -85,7 +85,7 @@ export function PasswordLock({ children }: { children: ReactNode }) {
         </button>
 
         <p className="mt-6 text-[11px] text-muted-foreground">
-          تلميح: أحلى يوم جابك للدنيا 🎂
+          أول يوم جيتي فيه الدنيا ينور عيني 🎂
         </p>
       </form>
 
