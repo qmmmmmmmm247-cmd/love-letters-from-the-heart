@@ -52,7 +52,7 @@ export function PasswordLock({ children }: { children: ReactNode }) {
         <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent glow-rose">
           <Lock className="h-9 w-9 text-primary-foreground" />
         </div>
-        <h1 className="mb-2 text-3xl font-bold text-gradient-rose">عالمنا الخاص</h1>
+        <h1 className="mb-2 text-3xl font-bold text-gradient-rose">صفحة العمر me</h1>
         <p className="mb-6 text-sm text-muted-foreground">
           المكان ده ليكي إنتي بس يا روحي.. ادخلي كلمة السر علشان تفتحي قلبي 💗
         </p>
@@ -85,7 +85,7 @@ export function PasswordLock({ children }: { children: ReactNode }) {
         </button>
 
         <p className="mt-6 text-[11px] text-muted-foreground">
-          تلميح: أحلى يوم جابك للدنيا 🎂
+          أول يوم جيتي فيه الدنيا ينور عيني 🎂
         </p>
       </form>
 
