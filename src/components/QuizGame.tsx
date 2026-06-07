@@ -53,18 +53,25 @@ export function QuizGame() {
     setSelected(i);
     if (i === current.correct) {
       setScore((s) => s + 1);
+      toast.success("صح يا روحي 💗", {
+        description: "إنتي فعلاً بتعرفيني 🥰",
+      });
+      setTimeout(() => {
+        if (idx + 1 >= questions.length) setDone(true);
+        else {
+          setIdx(idx + 1);
+          setSelected(null);
+        }
+      }, 1400);
     } else {
       toast.error("لا يا يم دماغ 😒💗", {
         description: "جربي تاني واختاري الصح 😂💗",
       });
-    }
-    setTimeout(() => {
-      if (idx + 1 >= questions.length) setDone(true);
-      else {
-        setIdx(idx + 1);
+      // wrong answer: reset selection so she can try again, do NOT advance
+      setTimeout(() => {
         setSelected(null);
-      }
-    }, 1400);
+      }, 1400);
+    }
   };
 
   const reset = () => {
